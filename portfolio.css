@@ -1,0 +1,569 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(20, 20, 20);
+    font-family: "Montserrat", serif;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.container>div {
+    padding: 10px 10px;
+    margin: 0 40px;
+    width: 185px;
+    color: rgb(180, 180, 180);
+    opacity: 0;
+    display: flex;
+    cursor: pointer;
+    border-radius: 30px;
+    background-color: rgb(20, 20, 20);
+    transition: background-color 0.3s ease, color 0.3s ease, opacity 0.5s ease, transform 0.3s ease;
+    border: 1px solid rgb(20, 20, 20);
+    box-shadow: 3px 3px 7px 0 rgb(27, 27, 27);
+}
+
+
+.container>div:hover {
+    background-color: rgba(51, 51, 51, 0.336);
+    color: rgb(255, 255, 255);
+    border: 1px solid rgb(51, 46, 46);
+    box-shadow: 3px 3px 7px 0 rgba(71, 71, 71, 0.842);
+    transform: translateY(5px);
+}
+
+.container>div.lightMode:hover {
+    background-color: rgba(151, 151, 151, 0.308);
+    color: rgb(0, 0, 0);
+    border: 1px solid rgb(175, 175, 175);
+    box-shadow: 3px 3px 7px 0 rgb(48, 48, 48);
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+.footer {
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    background-color: rgb(24, 23, 23);
+    border-top: 0.5px solid rgb(51, 46, 46);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.footer.show {
+    opacity: 1;
+}
+
+.header {
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    padding: 10px 0;
+    background-color: rgb(24, 23, 23);
+    border-bottom: 0.5px solid rgb(51, 46, 46);
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.header.show {
+    opacity: 1;
+}
+
+#githubLogo {
+    font-size: 40px;
+    color: rgb(71, 71, 71);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 3px 3px;
+}
+
+#homePage {
+    position: absolute;
+    left: 49%;
+    bottom: 6%;
+    width: 35px;
+    height: 35px;
+    font-size: 30px;
+    color: rgb(71, 71, 71);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    padding-top: 3px;
+    padding-bottom: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s ease, visibility 0s linear 0.5s, color 0.3s ease;
+}
+
+#homePage.show {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.5s ease, visibility 0s;
+}
+
+#homePage:hover {
+    color: aliceblue;
+    transition: color 0.3s ease, opacity 0.5s ease;
+}
+
+#githubLogo:hover {
+    color: aliceblue;
+}
+
+.aboutContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: aliceblue;
+    text-align: center;
+    margin-bottom: 200px;
+    font-size: 1.2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.aboutContainer.hide {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.aboutContainer.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.aboutContainer h1 {
+    margin-bottom: 10px;
+}
+
+.aboutContainer p {
+    width: 400px;
+    line-height: 1.5;
+    font-weight: 300;
+}
+
+.projectsContainer {
+    width: 96%;
+    height: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0s linear 0.5s;
+}
+
+.projectsContainer.show {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s ease, visibility 0s;
+}
+
+.projectsContainer.lightMode div {
+    background-color: #e4e4e4;
+    box-shadow: 3px 5px 7px 0 rgb(207, 207, 207);
+    border-color: #dadada;
+}
+
+.projectsContainer.lightMode div:hover {
+    background-color: #ffffff;
+}
+
+.projectsContainer.lightMode div h4 {
+    color: black;
+}
+
+.projectsContainer.lightMode div p {
+    color: black;
+    font-weight: 600;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 330px;
+    height: 540px;
+    background-color: rgb(29, 29, 29);
+    border: 1px solid rgba(77, 77, 77, 0.336);
+    border-radius: 30px;
+    box-shadow: 3px 5px 7px 0;
+    transition: transform 0.5s ease, background-color 0.5s ease;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.card:hover {
+    background-color: rgba(61, 61, 61, 0.527);
+    border: 1px solid rgba(119, 119, 119, 0.336);
+    transform: scale(1.05);
+    transition: transform 0.5s ease, background-color 0.5s ease;
+    color: rgb(58, 58, 58);
+}
+
+.card img {
+    border-radius: 30px;
+    object-fit: contain;
+    width: 95%;
+    height: 66%;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.card h4 {
+    font-size: 20px;
+    color: #cfcfcf;
+    text-align: center;
+    position: relative;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #cfcfcf;
+}
+
+.contactContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    font-size: 48px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+}
+
+.contactContainer.lightMode a {
+    color: black;
+}
+
+.contactContainer.lightMode a:hover {
+    text-shadow: rgb(70, 70, 70) 1px 0 10px;
+}
+
+.contactContainer.show {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.3s ease, visibility 0s;
+}
+
+.contactContainer a {
+    padding: 0;
+    margin: 0;
+    font-family: "Montserrat", serif;
+    color: rgb(224, 224, 224);
+    text-decoration: none;
+    font-style: italic;
+    transition: transform 0.3s ease;
+}
+
+.contactContainer a:hover {
+    text-shadow: rgb(218, 217, 213) 1px 0 10px;
+    transform: translateX(10px);
+}
+
+.switchContainer {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 5.7%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: aliceblue;
+    font-size: 1.2rem;
+    cursor: pointer;
+    user-select: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0s linear 0.5s;
+}
+
+.switchContainer.show {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s ease, visibility 0s;
+}
+
+.switchContainer.clicked {
+    pointer-events: none;
+}
+
+.switchToAbout {
+    padding: 5px 10px;
+    border-bottom: 1px solid rgb(51, 46, 46);
+    border-left: 1px solid rgb(51, 46, 46);
+    border-bottom-left-radius: 15px;
+    width: 150px;
+    transition: color 0.5s ease;
+}
+
+.switchToAbout:hover {
+    background-color: rgb(24, 24, 24);
+    transition: color, 0.5s ease;
+}
+
+.switchToProjects {
+    padding: 5px 10px;
+    border-bottom: 1px solid rgb(51, 46, 46);
+    border-left: 1px solid rgb(51, 46, 46);
+    border-right: 1px solid rgb(51, 46, 46);
+    width: 150px;
+    transition: color 0.5s ease;
+}
+
+.switchToProjects:hover {
+    background-color: rgb(24, 24, 24);
+    transition: color, 0.5s ease;
+}
+
+.switchToContact {
+    padding: 5px 10px;
+    border-bottom: 1px solid rgb(51, 46, 46);
+    border-right: 1px solid rgb(51, 46, 46);
+    border-bottom-right-radius: 15px;
+    width: 150px;
+    transition: color, 0.5s ease;
+}
+
+.switchToContact:hover {
+    background-color: rgb(24, 24, 24);
+    transition: color, 0.5s ease;
+}
+
+.switchToAbout.clicked {
+    color: rgb(155, 155, 155);
+    background-color: rgba(26, 26, 26, 0.596);
+    cursor: default;
+}
+
+.switchToContact.clicked {
+    color: rgb(155, 155, 155);
+    background-color: rgba(26, 26, 26, 0.596);
+    cursor: default;
+}
+
+.switchToProjects.clicked {
+    color: rgb(155, 155, 155);
+    background-color: rgba(26, 26, 26, 0.596);
+    cursor: default;
+}
+
+.switchToAbout.lightMode.clicked {
+    color: rgb(80, 80, 80);
+    background-color: rgba(184, 184, 184, 0.445);
+    cursor: default;
+}
+
+.switchToContact.lightMode.clicked {
+    color: rgb(80, 80, 80);
+    background-color: rgba(184, 184, 184, 0.445);
+    cursor: default;
+}
+
+.switchToProjects.lightMode.clicked {
+    color: rgb(80, 80, 80);
+    background-color: rgba(184, 184, 184, 0.445);
+    cursor: default;
+}
+
+.themeMode {
+    position: absolute;
+    top: 13px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 110px;
+}
+
+.clicked {
+    pointer-events: none;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(20, 20, 20);
+    transition: 0.3s;
+    border-radius: 24px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 4px;
+    bottom: 3px;
+    background-color: rgb(31, 31, 31);
+    transition: 0.3s;
+    border-radius: 50%;
+}
+
+input:checked+.slider {
+    background-color: #e0e0e0;
+}
+
+input:checked+.slider:before {
+    transform: translateX(26px);
+    background-color: rgb(255, 255, 255);
+}
+
+.icons {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    pointer-events: none;
+}
+
+.moon {
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+.sun {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+input:checked~.icons .moon {
+    opacity: 0;
+}
+
+input:checked~.icons .sun {
+    opacity: 1;
+}
+
+body.lightMode {
+    background-color: white;
+}
+
+.container>div.lightMode {
+    background-color: white;
+    color: black;
+    border-color: white;
+    box-shadow: 3px 3px 7px 0 rgb(121, 121, 121);
+}
+
+.footer.lightMode {
+    background-color: rgb(236, 236, 236);
+    border-top-color: rgb(184, 184, 184);
+}
+
+.header.lightMode {
+    background-color: rgb(236, 236, 236);
+    border-bottom-color: rgb(184, 184, 184);
+}
+
+#githubLogo.lightMode {
+    color: rgb(179, 179, 179);
+}
+
+#homePage.lightMode {
+    color: rgb(179, 179, 179);
+}
+
+#githubLogo.lightMode:hover {
+    color: rgb(87, 87, 87);
+}
+
+#homePage.lightMode:hover {
+    color: rgb(87, 87, 87);
+}
+
+.switchToAbout.lightMode {
+    padding: 5px 10px;
+    border-bottom: 1px solid rgb(184, 184, 184);
+    border-left: 1px solid rgb(184, 184, 184);
+    border-bottom-left-radius: 15px;
+    width: 150px;
+    color: black;
+    font-weight: 600;
+}
+
+.switchToAbout.lightMode:hover {
+    background-color: rgb(231, 231, 231);
+}
+
+.switchToProjects.lightMode {
+    padding: 5px 10px;
+    border-bottom: 1px solid rgb(184, 184, 184);
+    border-left: 1px solid rgb(184, 184, 184);
+    border-right: 1px solid rgb(184, 184, 184);
+    width: 150px;
+    color: black;
+    font-weight: 600;
+}
+
+.switchToProjects.lightMode:hover {
+    background-color: rgb(231, 231, 231);
+}
+
+.switchToContact.lightMode {
+    padding: 5px 10px;
+    border-bottom: 1px solid rgb(184, 184, 184);
+    border-right: 1px solid rgb(184, 184, 184);
+    border-bottom-right-radius: 15px;
+    width: 150px;
+    color: black;
+    font-weight: 600;
+}
+
+.switchToContact.lightMode:hover {
+    background-color: rgb(231, 231, 231);
+}
+
+.aboutContainer.lightMode {
+    color: black;
+}
+
+.aboutContainer.lightMode p {
+    font-weight: 600;
+}
